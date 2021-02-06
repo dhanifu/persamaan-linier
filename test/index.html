@@ -1,0 +1,141 @@
+<html>
+
+<head>
+    <title>Algorithma FPB dan KPK</title>
+</head>
+
+<body>
+    <div><input type="text" name="angka" id="inputa" value="24,42" /><input type="submit" value="Submit"
+            onclick="Masukkan()" /></div>
+    <div id="hasil" style="margin-top:10px;"></div>
+    <script>
+        class Angka {
+            constructor(a) {
+                this.value = a;
+                this.number = [];
+                this.pangkat = [];
+
+                var prime = 2,
+                    j = 0;
+                while (a >= 2) {
+                    if (a % prime == 0) {
+                        a /= prime;
+                        if (j == 0 || (j > 0 && this.number[j - 1] != prime)) {
+                            this.number[j] = prime;
+                            this.pangkat[j] = 1;
+                            j++;
+                        } else {
+                            this.pangkat[j - 1]++;
+                        }
+                    } else {
+                        prime = nextPrime(prime);
+                    }
+                }
+            }
+        }
+
+        function nextPrime(a) {
+            var ketemu = false;
+            var i = a + 1;
+            while (!ketemu) {
+                ketemu = true;
+                for (j = 2; j < i; j++) {
+                    if (i % j == 0) {
+                        ketemu = false;
+                        break;
+                    }
+                }
+                if (ketemu) return i;
+                i++;
+            }
+        }
+
+        function Masukkan() {
+            var text = document.getElementById("inputa").value;
+            var nangka = text.split(",");
+            var Bilangan = [];
+            for (i = 0; i < nangka.length; i++) {
+                Bilangan[i] = new Angka(Number(nangka[i]));
+            }
+
+            var maxjum = 0,
+                idmax = 0;
+            document.getElementById("hasil").innerHTML = "";
+            for (i = 0; i < Bilangan.length; i++) {
+                var pesan = Bilangan[i].value + " = ";
+                if (Bilangan[i].number.length > maxjum) {
+                    maxjum = Bilangan[i].number.length;
+                    idmax = i;
+                }
+                for (j = 0; j < Bilangan[i].number.length; j++) {
+                    if (j > 0) pesan += "x";
+                    pesan += Bilangan[i].number[j];
+                    if (Bilangan[i].pangkat[j] > 1) pesan += "<sup>" + Bilangan[i].pangkat[j] + "</sup>";
+                }
+                document.getElementById("hasil").innerHTML += pesan + "<br/>";
+            }
+
+            var nkpk = [],
+                nfpb = [];
+            console.log(nkpk)
+            for (i = 0; i < Bilangan.length; i++) {
+                for (j = 0; j < Bilangan[i].number.length; j++) {
+                    var ada = false;
+                    for (k = 0; k < nkpk.length / 2; k++) {
+                        if (nkpk[2 * k + 0] == Bilangan[i].number[j]) {
+                            ada = true;
+                            if (Bilangan[i].pangkat[j] > nkpk[2 * k + 1]) nkpk[2 * k + 1] = Bilangan[i].pangkat[j];
+                            break;
+                        }
+                    }
+                    if (!ada) {
+                        nkpk[nkpk.length] = Bilangan[i].number[j];
+                        nkpk[nkpk.length] = Bilangan[i].pangkat[j];
+                    }
+                }
+            }
+
+            for (j = 0; j < Bilangan[idmax].number.length; j++) {
+                var jum = 1,
+                    p = Bilangan[idmax].pangkat[j];
+                for (i = 0; i < Bilangan.length; i++) {
+                    if (idmax != i) {
+                        for (k = 0; k < Bilangan[i].number.length; k++)
+                            if (Bilangan[idmax].number[j] == Bilangan[i].number[k]) {
+                                if (Bilangan[i].pangkat[j] < p) p = Bilangan[i].pangkat[j];
+                                jum++;
+                                break;
+                            }
+                    }
+                }
+                if (jum == Bilangan.length) {
+                    nfpb[nfpb.length] = Bilangan[idmax].number[j];
+                    nfpb[nfpb.length] = p;
+                }
+            }
+
+            var KPK = 1;
+            var FPB = 1;
+
+            var kata = "KPK : ";
+            for (i = 0; i < nkpk.length / 2; i++) {
+                if (i > 0) kata += "x";
+                kata += nkpk[2 * i + 0];
+                if (nkpk[2 * i + 1] > 1) kata += "<sup>" + nkpk[2 * i + 1] + "</sup>";
+                KPK *= Math.pow(nkpk[2 * i + 0], nkpk[2 * i + 1]);
+            }
+            document.getElementById("hasil").innerHTML += kata + " = " + KPK + "<br/>";
+
+            var kata = "FPB : ";
+            for (i = 0; i < nfpb.length / 2; i++) {
+                if (i > 0) kata += "x";
+                kata += nfpb[2 * i + 0];
+                if (nfpb[2 * i + 1] > 1) kata += "<sup>" + nfpb[2 * i + 1] + "</sup>";
+                FPB *= Math.pow(nfpb[2 * i + 0], nfpb[2 * i + 1]);
+            }
+            document.getElementById("hasil").innerHTML += kata + " = " + FPB;
+        }
+    </script>
+</body>
+
+</html>

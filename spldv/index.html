@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPLDV</title>
+</head>
+<body>
+
+    <input type="number" id="x_one">x
+    <select id="operasi_one">
+        <option value="+">+</option>
+        <option value="-">-</option>
+    </select>
+    <input type="number" id="y_one">y = 
+    <input type="number" id="z_one">
+    
+    <br>
+    
+    <input type="number" id="x_two">x
+    <select id="operasi_two">
+        <option value="+">+</option>
+        <option value="-">-</option>
+    </select>
+    <input type="number" id="y_two">y =
+    <input type="number" id="z_two">
+
+
+
+    <div id="hasil">
+
+    </div>
+
+
+
+    <br>
+    <button id="hitung" style="margin-top: 10px;">Hitung</button>
+
+    
+    <script src="../core.js"></script>
+    <script>
+
+        const hitung = document.getElementById('hitung')
+        const fpb = (a, b) => { 
+            a = Math.abs(a) 
+            b = Math.abs(b) 
+        
+            if(!b) return b === 0 ? a : NaN; 
+            
+            let r = a % b 
+            return fpb(b, r) 
+        } 
+        const kpk = (a, b) => { 
+            let hasilFPB = fpb(a, b) 
+        
+            return Math.abs(a*b) / hasilFPB 
+        } 
+
+        hitung.addEventListener('click', function(){
+            let x_one = document.getElementById('x_one').value
+            let x_two = document.getElementById('x_two').value
+            let y_one = document.getElementById('y_one').value
+            let y_two = document.getElementById('y_two').value
+            let z_one = document.getElementById('z_one').value
+            let z_two = document.getElementById('z_two').value
+
+            // Cari KPK
+            let kpkX = kpk(x_one, x_two)
+            let kpkY = kpk(y_one, y_two)
+            console.log(`Kpk dari ${x_one} dan ${x_two} adalah ${kpkX}`)
+            console.log(`Kpk dari ${y_one} dan ${y_two} adalah ${kpkY}`)
+
+            let a = kpkX / x_one
+            let b = kpkX / x_two
+            let c = kpkY / y_one
+            let d = kpkY / y_two
+
+            console.log(a, b ,c, d)
+
+            let e = (x_one*a)
+            let f = (y_one*a)
+            let g = (z_one*a)
+
+            let h = (x_two*b)
+            let i = (y_two*b)
+            let j = (z_two*b)
+
+            console.log(e, f, g)
+            console.log(h, i, j)
+            
+            let operasi_one = $("#operasi_one").val()
+            let operasi_two = $("#operasi_two").val()
+
+            $("#hasil").html(`
+                <input disabled value="${e}x ${operasi_one} ${f}y = ${g}"><br>
+                <input disabled value="${h}x ${operasi_two} ${i}y = ${j}">
+            `)
+        })
+
+
+    </script>
+</body>
+</html>
