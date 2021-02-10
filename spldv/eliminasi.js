@@ -31,8 +31,8 @@ const metodeEliminasi = (data) => {
 
     $("#hasil").html(`
         <p>Eliminasi X</p>
-        <input disabled value="${nilai.kpk_x}x ${nilai.operasi_one} ${nilai.y_one * kaliKpk.x}y = ${nilai.z_one * kaliKpk.x}"><br>
-        <input disabled value = "${nilai.kpk_x}x ${nilai.operasi_two} ${nilai.y_two * kaliKpk.x_2}y = ${nilai.z_two * kaliKpk.x_2}"><br>
+        <input disabled value="${nilai.kpk_x}x ${nilai.operasi_one} ${kurungMinus(nilai.y_one * kaliKpk.x)}y = ${nilai.z_one * kaliKpk.x}"><br>
+        <input disabled value = "${nilai.kpk_x}x ${nilai.operasi_two} ${kurungMinus(nilai.y_two * kaliKpk.x_2)}y = ${nilai.z_two * kaliKpk.x_2}"><br>
         <input disabled value="" id="penyelesaian_x"><br>
         <input disabled value="" id="hasil_x">
         
@@ -56,17 +56,20 @@ const metodeEliminasi = (data) => {
         let penyelesaian_y = `${y_kiri}x = ${y_kanan}`
         let hasil_y = `x = ${y_kanan}/${y_kiri} = ${y_kanan / y_kiri}`
 
-        hasil = { x: x_kanan / x_kiri, y: y_kanan / y_kiri }
+        hasil = {
+            x: y_kanan / y_kiri,
+            y: x_kanan / x_kiri
+        }
 
         $('#penyelesaian_x').val(penyelesaian_x)
         $('#hasil_x').val(hasil_x)
         $('#penyelesaian_y').val(penyelesaian_y)
         $('#hasil_y').val(hasil_y)
 
+        return hasil
     } else {
         alert("tidak 0")
     }
-    return hasil
 }
 
 

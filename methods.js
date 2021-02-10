@@ -26,3 +26,29 @@ const kurungMinus = nilai => {
     }
     return nilai
 }
+const pindahRuas = nilai => {
+    return nilai * -1
+}
+const cekRuas = nilai => {
+    if (nilai > 0) {
+        return `+ ${nilai}`
+    } else {
+        return `- ${nilai * -1}`
+    }
+}
+
+const kali = (a, b) => {
+    return a * b
+}
+const bagi = (a, b) => {
+    return a / b
+}
+const tambah = (a, b) => {
+    return a + b
+}
+const kurang = (a, b) => {
+    return a - b
+}
+const modulus = (a, b) => {
+    return a % b
+}
