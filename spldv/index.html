@@ -6,38 +6,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPLDV</title>
+    <link rel="stylesheet" href="../public/css/tailwind.css">
+
+    <style>
+        #foo{
+            resize: none;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="flex flex-col items-center justify-center w-screen h-screen">
+        <h1 class="text-4xl font-bold">SPLDV</h1>
+        <div class="p-4">
+            <div id="persamaan">
+                <input type="number" id="x_one" value="" class="form"> X
+                <select id="operasi_one" class="form">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                </select>
+                <input type="number" id="y_one" value="" class="form"> Y =
+                <input type="number" id="z_one" value="" class="form">
+        
+                <br><br>
+        
+                <input type="number" id="x_two" value="" class="form"> X
+                <select id="operasi_two" class="form">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                </select>
+                <input type="number" id="y_two" value="" class="form"> Y =
+                <input type="number" id="z_two" value="" class="form">
+            </div>
+            <div class="">
+                <div class="grid grid-cols-4 gap-4 mt-4">
+                    <button id="eliminasi" class="btn-purple">Eliminasi</button>
+                    <button id="eliminasi" class="btn-purple">Subtitusi</button>
+                    <button id="campuran" class="btn-purple">Campuran</button>
+                    <button id="eliminasi" class="btn-purple">Matriks</button> 
+                </div>
+                
+                <div class="flex justify-center mt-4 btn-purple">
+                    <button id="clear" class="text-white font-semibold">Clear</button>
+                </div>
 
-    <div id="persamaan">
-        <input type="number" id="x_one" value=""> X
-        <select id="operasi_one">
-            <option value="+">+</option>
-            <option value="-">-</option>
-        </select>
-        <input type="number" id="y_one" value=""> Y =
-        <input type="number" id="z_one" value="">
-
-        <br><br>
-
-        <input type="number" id="x_two" value=""> X
-        <select id="operasi_two">
-            <option value="+">+</option>
-            <option value="-">-</option>
-        </select>
-        <input type="number" id="y_two" value=""> Y =
-        <input type="number" id="z_two" value="">
-
-        <br>
-        <button id="eliminasi" style="margin-top: 10px;">Eliminasi</button>
-        <button id="campuran" style="margin-top: 10px;">Campuran</button>
-    </div>
-    <br><br>
-    <button id="clear">Clear</button>
-
-    <div id="hasil">
-
+                <div id="hasil">
+                
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="../core.js"></script>
