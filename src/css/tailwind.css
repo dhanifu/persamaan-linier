@@ -6,3 +6,10 @@
 	@apply p-20 bg-gray-400;
 }
 
+.form {
+	@apply border-2 border-gray-300 rounded focus:outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-300;
+}
+
+.btn-purple{
+	@apply px-1 py-2 bg-purple-600 rounded text-white font-semibold hover:bg-purple-800 duration-500;
+}

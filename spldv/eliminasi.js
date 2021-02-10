@@ -31,18 +31,18 @@ const metodeEliminasi = (data) => {
 
     $("#hasil").html(`
         <p>Eliminasi X</p>
-        <input disabled value="${nilai.kpk_x}x ${nilai.operasi_one} ${kurungMinus(nilai.y_one * kaliKpk.x)}y = ${nilai.z_one * kaliKpk.x}"><br>
-        <input disabled value = "${nilai.kpk_x}x ${nilai.operasi_two} ${kurungMinus(nilai.y_two * kaliKpk.x_2)}y = ${nilai.z_two * kaliKpk.x_2}"><br>
-        <input disabled value="" id="penyelesaian_x"><br>
-        <input disabled value="" id="hasil_x">
+        <input disabled class="form w-full" value="${nilai.kpk_x}x ${nilai.operasi_one} ${kurungMinus(nilai.y_one * kaliKpk.x)}y = ${nilai.z_one * kaliKpk.x}"><br>
+        <input disabled class="form w-full" value= "${nilai.kpk_x}x ${nilai.operasi_two} ${kurungMinus(nilai.y_two * kaliKpk.x_2)}y = ${nilai.z_two * kaliKpk.x_2}"><br>
+        <input disabled class="form w-full" value="" id="penyelesaian_x"><br>
+        <input disabled class="form w-full" value="" id="hasil_x">
         
         <br><br>
 
         <p>Eliminasi Y</p>
-        <input disabled value="${nilai.x_one * kaliKpk.y}x ${nilai.operasi_one} ${nilai.kpk_y}y = ${nilai.z_one * kaliKpk.y}"><br>
-        <input disabled value = "${nilai.x_two * kaliKpk.y_2}x ${nilai.operasi_two} ${nilai.kpk_y}y = ${nilai.z_two * kaliKpk.y_2}"><br>
-        <input disabled value="" id="penyelesaian_y"><br>
-        <input disabled value="" id="hasil_y">
+        <input disabled class="form w-full" value="${nilai.x_one * kaliKpk.y}x ${nilai.operasi_one} ${nilai.kpk_y}y = ${nilai.z_one * kaliKpk.y}"><br>
+        <input disabled class="form w-full" value= "${nilai.x_two * kaliKpk.y_2}x ${nilai.operasi_two} ${nilai.kpk_y}y = ${nilai.z_two * kaliKpk.y_2}"><br>
+        <input disabled class="form w-full" value="" id="penyelesaian_y"><br>
+        <input disabled class="form w-full" value="" id="hasil_y">
     `)
 
     if (nilai.kpk_x - nilai.kpk_x == 0) {

@@ -33,10 +33,10 @@ const metodeCampuran = (data, x, y) => {
     // Eliminasi dulu
     $("#hasil").html(`
     <p>Eliminasi Y</p>
-    <input disabled value="${nilai.x_one * kaliKpk.y}x ${nilai.operasi_one} ${nilai.kpk_y}y = ${nilai.z_one * kaliKpk.y}"><br>
-    <input disabled value = "${nilai.x_two * kaliKpk.y_2}x ${nilai.operasi_two} ${nilai.kpk_y}y = ${nilai.z_two * kaliKpk.y_2}"><br>
-    <input disabled value= "${nilai.x_one * kaliKpk.y + nilai.x_two * kaliKpk.y_2}x = ${nilai.z_one * kaliKpk.y + nilai.z_two * kaliKpk.y_2}"><br>
-    <input disabled value="x = ${(nilai.z_one * kaliKpk.y + nilai.z_two * kaliKpk.y_2) / (nilai.x_one * kaliKpk.y + nilai.x_two * kaliKpk.y_2)}">
+    <textarea disabled class="form w-full" id="foo">${nilai.x_one * kaliKpk.y}x ${nilai.operasi_one} ${nilai.kpk_y}y = ${nilai.z_one * kaliKpk.y}
+${nilai.x_two * kaliKpk.y_2}x ${nilai.operasi_two} ${nilai.kpk_y}y = ${nilai.z_two * kaliKpk.y_2}</textarea>
+    <input disabled class="form w-full" value= "${nilai.x_one * kaliKpk.y + nilai.x_two * kaliKpk.y_2}x = ${nilai.z_one * kaliKpk.y + nilai.z_two * kaliKpk.y_2}"><br>
+    <input disabled class="form w-full" value="x = ${(nilai.z_one * kaliKpk.y + nilai.z_two * kaliKpk.y_2) / (nilai.x_one * kaliKpk.y + nilai.x_two * kaliKpk.y_2)}">
     `)
 
     console.log(data[0][0].x_one);
@@ -51,12 +51,12 @@ const metodeCampuran = (data, x, y) => {
         <br>
         <br>
         <p>Subtitusi X</p>
-        <input disabled value="${data[0][1].x_two}(${x}) ${data[0][1].operasi_two} ${data[0][1].y_two}y = ${data[0][1].z_two}"><br>
-        <input disabled value="${kali_kurung} ${data[0][1].operasi_two} ${data[0][1].y_two}y = ${data[0][1].z_two}"><br>
-        <input disabled value="${y2}y = ${data[0][1].z_two} ${cekRuas(pindah_ruas)}"><br>
-        <input disabled value="${y2}y = ${hasil_pindah_ruas2}"><br>
-        <input disabled value="y = ${hasil_pindah_ruas2} / ${kurungMinus(y2)}"><br>
-        <input disabled value="y = ${hasil_pindah_ruas2 / y2}"><br>
+        <input disabled class="form w-full" value="${data[0][1].x_two}(${x}) ${data[0][1].operasi_two} ${data[0][1].y_two}y = ${data[0][1].z_two}"><br>
+        <input disabled class="form w-full" value="${kali_kurung} ${data[0][1].operasi_two} ${data[0][1].y_two}y = ${data[0][1].z_two}"><br>
+        <input disabled class="form w-full" value="${y2}y = ${data[0][1].z_two} ${cekRuas(pindah_ruas)}"><br>
+        <input disabled class="form w-full" value="${y2}y = ${hasil_pindah_ruas2}"><br>
+        <input disabled class="form w-full" value="y = ${hasil_pindah_ruas2} / ${kurungMinus(y2)}"><br>
+        <input disabled class="form w-full" value="y = ${hasil_pindah_ruas2 / y2}"><br>
     `)
 
 
