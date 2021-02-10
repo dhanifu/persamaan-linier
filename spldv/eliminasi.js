@@ -32,28 +32,27 @@ const metodeEliminasi = (data) => {
     $("#hasil").html(`
         <p>Eliminasi X</p>
         <input disabled value="${nilai.kpk_x}x ${nilai.operasi_one} ${nilai.y_one * kaliKpk.x}y = ${nilai.z_one * kaliKpk.x}"><br>
-        <input disabled value = "${nilai.kpk_x}x ${nilai.operasi_two} ${nilai.y_two * kaliKpk.y}y = ${nilai.z_two * kaliKpk.y}"><br>
+        <input disabled value = "${nilai.kpk_x}x ${nilai.operasi_two} ${nilai.y_two * kaliKpk.x_2}y = ${nilai.z_two * kaliKpk.x_2}"><br>
         <input disabled value="" id="penyelesaian_x"><br>
         <input disabled value="" id="hasil_x">
         
         <br><br>
 
         <p>Eliminasi Y</p>
-        <input disabled value="${nilai.x_one * kaliKpk.x_2}x ${nilai.operasi_one} ${nilai.kpk_y}y = ${nilai.z_one * kaliKpk.x_2}"><br>
+        <input disabled value="${nilai.x_one * kaliKpk.y}x ${nilai.operasi_one} ${nilai.kpk_y}y = ${nilai.z_one * kaliKpk.y}"><br>
         <input disabled value = "${nilai.x_two * kaliKpk.y_2}x ${nilai.operasi_two} ${nilai.kpk_y}y = ${nilai.z_two * kaliKpk.y_2}"><br>
         <input disabled value="" id="penyelesaian_y"><br>
         <input disabled value="" id="hasil_y">
     `)
 
-
     if (nilai.kpk_x - nilai.kpk_x == 0) {
-        let x_kiri = cekMinus(nilai.operasi_one, nilai.y_one * kaliKpk.x) - cekMinus(nilai.operasi_two, nilai.y_two * kaliKpk.y)
-        let x_kanan = (nilai.z_one * kaliKpk.x) - (nilai.z_two * kaliKpk.y)
+        let x_kiri = cekMinus(nilai.operasi_one, nilai.y_one * kaliKpk.x) - cekMinus(nilai.operasi_two, nilai.y_two * kaliKpk.x_2)
+        let x_kanan = (nilai.z_one * kaliKpk.x) - (nilai.z_two * kaliKpk.x_2)
         let penyelesaian_x = `${x_kiri}y = ${x_kanan}`
         let hasil_x = `y = ${x_kanan}/${x_kiri} = ${x_kanan / x_kiri}`
 
-        let y_kiri = (nilai.x_one * kaliKpk.x_2) + (nilai.x_two * kaliKpk.y_2)
-        let y_kanan = (nilai.z_one * kaliKpk.x_2) + (nilai.z_two * kaliKpk.y_2)
+        let y_kiri = (nilai.x_one * kaliKpk.y) + (nilai.x_two * kaliKpk.y_2)
+        let y_kanan = (nilai.z_one * kaliKpk.y) + (nilai.z_two * kaliKpk.y_2)
         let penyelesaian_y = `${y_kiri}x = ${y_kanan}`
         let hasil_y = `x = ${y_kanan}/${y_kiri} = ${y_kanan / y_kiri}`
 
@@ -98,5 +97,3 @@ eliminasi.addEventListener('click', function () {
 
     eliminasiHP = metodeEliminasi(nilai)
 })
-
-
