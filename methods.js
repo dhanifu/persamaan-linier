@@ -19,3 +19,10 @@ const cekMinus = (operasi, nilai) => {
         return nilai * -1
     }
 }
+const kurungMinus = nilai => {
+    nilai = parseInt(nilai)
+    if (nilai < 0) {
+        return `(${nilai})`
+    }
+    return nilai
+}
