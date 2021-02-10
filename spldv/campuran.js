@@ -25,7 +25,8 @@ const metodeCampuran = (data, x, y) => {
     pindah_ruas = pindahRuas(kali_kurung)
     hasil_pindah_ruas2 = parseInt(data[0][1].z_two) + pindah_ruas
 
-    $("#hasil").html(`
+    $("#hasil").append(`
+        <br>
         <input disabled value="${data[0][1].x_two}(${x}) ${data[0][1].operasi_two} ${data[0][1].y_two}y = ${data[0][1].z_two}"><br>
         <input disabled value="${kali_kurung} ${data[0][1].operasi_two} ${data[0][1].y_two}y = ${data[0][1].z_two}"><br>
         <input disabled value="${y2}y = ${data[0][1].z_two} ${cekRuas(pindah_ruas)}"><br>
