@@ -11,5 +11,5 @@
 }
 
 .btn-purple{
-	@apply px-1 py-2 bg-purple-600 rounded text-white font-semibold hover:bg-purple-800 duration-500;
+	@apply px-1 py-2 bg-purple-600 rounded text-white font-semibold hover:bg-purple-800 duration-500 focus:outline-none;
 }

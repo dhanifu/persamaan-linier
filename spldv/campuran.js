@@ -93,5 +93,6 @@ campuran.addEventListener('click', function () {
     let y = eliminasiHP.y
     $('#hasil').html('')
 
+
     hasilCampuran = metodeCampuran(nilai, x, y)
 })

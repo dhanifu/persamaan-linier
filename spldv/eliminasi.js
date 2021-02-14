@@ -1,4 +1,3 @@
-
 const eliminasi = document.getElementById('eliminasi')
 
 let eliminasiHP = {}
