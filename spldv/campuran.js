@@ -39,8 +39,6 @@ ${nilai.x_two * kaliKpk.y_2}x ${nilai.operasi_two} ${nilai.kpk_y}y = ${nilai.z_t
     <input disabled class="form w-full" value="x = ${(nilai.z_one * kaliKpk.y + nilai.z_two * kaliKpk.y_2) / (nilai.x_one * kaliKpk.y + nilai.x_two * kaliKpk.y_2)}">
     `)
 
-    console.log(data[0][0].x_one);
-
     // Baru subtitusi
     kali_kurung = kali(data[0][1].x_two, x)
     let y2 = cekMinus(data[0][1].operasi_two, data[0][1].y_two)
@@ -94,6 +92,7 @@ campuran.addEventListener('click', function () {
     let x = eliminasiHP.x
     let y = eliminasiHP.y
     $('#hasil').html('')
+
 
     hasilCampuran = metodeCampuran(nilai, x, y)
 })
