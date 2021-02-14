@@ -25,7 +25,7 @@ const metodeCampuran = (data, x, y) => {
         z_two: data[0][1].z_two,
     }
 
-    
+
     let kali_kurung = kali(data[0][0].y_one, y)
     let pindah_ruas = pindahRuas(kali_kurung)
     let hasil_pindah_ruas = parseInt(data[0][0].z_one) + pindah_ruas
