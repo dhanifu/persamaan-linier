@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../public/css/tailwind.css">
 
     <style>
-        #foo{
+        #foo {
             resize: none;
         }
     </style>
@@ -27,9 +27,9 @@
                 </select>
                 <input type="number" id="y_one" value="" class="form"> Y =
                 <input type="number" id="z_one" value="" class="form">
-        
+
                 <br><br>
-        
+
                 <input type="number" id="x_two" value="" class="form"> X
                 <select id="operasi_two" class="form">
                     <option value="+">+</option>
@@ -41,33 +41,35 @@
             <div class="">
                 <div class="grid grid-cols-4 gap-4 mt-4">
                     <button id="eliminasi" class="btn-purple">Eliminasi</button>
-                    <button id="eliminasi" class="btn-purple">Subtitusi</button>
+                    <button id="substitusi" class="btn-purple">Subtitusi</button>
                     <button id="campuran" class="btn-purple">Campuran</button>
-                    <button id="eliminasi" class="btn-purple">Matriks</button> 
+                    <button id="matriks" class="btn-purple">Matriks</button>
                 </div>
-                
+
                 <div class="flex justify-center mt-4 btn-purple">
                     <button id="clear" class="text-white font-semibold">Clear</button>
                 </div>
 
                 <div id="hasil">
-                
+
                 </div>
             </div>
         </div>
     </div>
 
     <script src="../core.js"></script>
-    <script src="../methods.js"></script>
-    <script src="./eliminasi.js"></script>
-    <script src="./campuran.js"></script>
-
     <script>
+        const substitusi = document.getElementById('substitusi')
         const clear = document.getElementById('clear')
         clear.addEventListener('click', function () {
             $('#hasil').html('')
         })
     </script>
+    <script src="../methods.js"></script>
+    <script src="./eliminasi.js"></script>
+    <script src="./campuran.js"></script>
+    <script src="./substitusi.js"></script>
+
 </body>
 
 </html>

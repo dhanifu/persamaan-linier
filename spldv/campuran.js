@@ -25,7 +25,7 @@ const metodeCampuran = (data, x, y) => {
         z_two: data[0][1].z_two,
     }
 
-    
+
     let kali_kurung = kali(data[0][0].y_one, y)
     let pindah_ruas = pindahRuas(kali_kurung)
     let hasil_pindah_ruas = parseInt(data[0][0].z_one) + pindah_ruas
@@ -38,8 +38,6 @@ ${nilai.x_two * kaliKpk.y_2}x ${nilai.operasi_two} ${nilai.kpk_y}y = ${nilai.z_t
     <input disabled class="form w-full" value= "${nilai.x_one * kaliKpk.y + nilai.x_two * kaliKpk.y_2}x = ${nilai.z_one * kaliKpk.y + nilai.z_two * kaliKpk.y_2}"><br>
     <input disabled class="form w-full" value="x = ${(nilai.z_one * kaliKpk.y + nilai.z_two * kaliKpk.y_2) / (nilai.x_one * kaliKpk.y + nilai.x_two * kaliKpk.y_2)}">
     `)
-
-    console.log(data[0][0].x_one);
 
     // Baru subtitusi
     kali_kurung = kali(data[0][1].x_two, x)
