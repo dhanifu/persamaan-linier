@@ -31789,6 +31789,14 @@ video {
 .btn-purple {
   border-radius: 0.25rem;
   font-weight: 600;
+}
+
+.btn-purple:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.btn-purple {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
   padding-top: 0.5rem;
