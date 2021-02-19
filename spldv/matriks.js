@@ -24,20 +24,20 @@ const metodeMatriks = (data, x, y) => {
     let hasilBawah = ((nilai.x_two * -1) * nilai.z_one) + (nilai.x_one * nilai.z_two)
 
     $("#hasil").html(`
-    <textarea disabled class="form w-full" id="foo">|${nilai.x_one}  ${y1}| |x| = |${nilai.z_one}|
+    <textarea disabled class="form block w-full" id="foo">|${nilai.x_one}  ${y1}| |x| = |${nilai.z_one}|
 |${nilai.x_two}  ${y3}| |y|   |${nilai.z_two}|</textarea>
-    <textarea disabled class="form w-full" id="foo">|x| = |${nilai.x_one}  ${y1}|^-1  |${nilai.z_one}|
+    <textarea disabled class="form block w-full" id="foo">|x| = |${nilai.x_one}  ${y1}|^-1  |${nilai.z_one}|
 |y|    |${nilai.x_two}  ${y3}|       |${nilai.z_two}|</textarea>
     
-    <textarea disabled class="form w-full" id="foo">|x| = 1/${nilai.x_one} * ${y3} - ${kurungMinus(y1)} * ${nilai.x_two} |${y3}  ${y1 * -1}| |${nilai.z_one}|
-|y|    |${nilai.x_two * -1}  ${nilai.x_one}| |${nilai.z_two}|</textarea>
+    <textarea disabled class="form block w-full" id="foo">|x| = 1/${nilai.x_one} * ${y3} - ${kurungMinus(y1)} * ${nilai.x_two} |${y3}  ${y1 * -1}| |${nilai.z_one}|
+|y|                          |${nilai.x_two * -1}  ${nilai.x_one}| |${nilai.z_two}|</textarea>
     
-    <textarea disabled class="form w-full" id="foo">|x| = 1/${invers} |${y3}  ${y1 * -1}| |${nilai.z_one}|
+    <textarea disabled class="form block w-full" id="foo">|x| = 1/${invers} |${y3}  ${y1 * -1}| |${nilai.z_one}|
 |y|              |${nilai.x_two * -1}  ${nilai.x_one}| |${nilai.z_two}|</textarea>
     
-    <textarea disabled class="form w-full" id="foo">|x| = 1/${invers} |${hasilAtas}|
+    <textarea disabled class="form block w-full" id="foo">|x| = 1/${invers} |${hasilAtas}|
 |y|              |${hasilBawah}|</textarea>
-    <textarea disabled class="form w-full" id="foo">|x| = |${hasilAtas / invers}|
+    <textarea disabled class="form block w-full" id="foo">|x| = |${hasilAtas / invers}|
 |y|     |${hasilBawah / invers}|</textarea>
 `)
 

@@ -23,8 +23,8 @@
                 SPLTV</div>
         </a>
     </div>
-    <div class="flex flex-col items-center justify-center w-screen h-screen">
-        <h1 class="text-4xl font-bold">SPLDV</h1>
+    <div class="flex flex-col items-center justify-center w-auto">
+        <h1 class="text-4xl font-bold mt-40">SPLDV</h1>
         <div class="p-4">
             <div id="persamaan">
                 <input type="number" id="x_one" value="" class="form"> X
@@ -32,9 +32,13 @@
                     <option value="+">+</option>
                     <option value="-">-</option>
                 </select>
-                <input type="number" id="y_one" value="" class="form"> Y =
-                <input type="number" id="z_one" value="" class="form">
-
+                <input type="number" id="y_one" value="" class="form"> Y
+                <select id="operasi_one2" class="form">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                </select> 
+                <input type="number" id="z_one" value="" class="form"> Z =
+                <input type="number" id="a_one" value="" class="form">
                 <br><br>
 
                 <input type="number" id="x_two" value="" class="form"> X
@@ -42,8 +46,27 @@
                     <option value="+">+</option>
                     <option value="-">-</option>
                 </select>
-                <input type="number" id="y_two" value="" class="form"> Y =
-                <input type="number" id="z_two" value="" class="form">
+                <input type="number" id="y_two" value="" class="form"> Y
+                <select id="operasi_two2" class="form">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                </select> 
+                <input type="number" id="z_two" value="" class="form"> Z =
+                <input type="number" id="a_two" value="" class="form">
+                <br><br>
+
+                <input type="number" id="x_three" value="" class="form"> X
+                <select id="operasi_three" class="form">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                </select>
+                <input type="number" id="y_three" value="" class="form"> Y
+                <select id="operasi_three2" class="form">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                </select> 
+                <input type="number" id="z_three" value="" class="form"> Z =
+                <input type="number" id="a_three" value="" class="form">
             </div>
             <div class="">
                 <div class="grid grid-cols-4 gap-4 mt-4">
@@ -66,6 +89,7 @@
     </div>
 
     <script src="../core.js"></script>
+    <script src="./eliminasi.js"></script>
     <script>
         const substitusi = document.getElementById('substitusi')
         const clear = document.getElementById('clear')
@@ -74,10 +98,6 @@
         })
     </script>
     <script src="../methods.js"></script>
-    <script src="./eliminasi.js"></script>
-    <script src="./campuran.js"></script>
-    <script src="./substitusi.js"></script>
-    <script src="./matriks.js"></script>
 
 </body>
 
