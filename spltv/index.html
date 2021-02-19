@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPLDV</title>
+    <title>Persamaan Linear</title>
     <link rel="stylesheet" href="../public/css/tailwind.css">
 
     <style>
@@ -17,14 +17,14 @@
 
 <body class="relative">
     <div class="absolute top-5 right-5">
-        <a href="">
+        <a href="../spldv/index.html">
             <div
                 class="h-12 w-12 bg-yellow-400 rounded-full flex items-center justify-center text-xs text-white font-semibold ring ring-yellow-300">
-                SPLTV</div>
+                SPLDV</div>
         </a>
     </div>
     <div class="flex flex-col items-center justify-center w-auto">
-        <h1 class="text-4xl font-bold mt-40">SPLDV</h1>
+        <h1 class="text-4xl font-bold mt-40">SPLTV</h1>
         <div class="p-4">
             <div id="persamaan">
                 <input type="number" id="x_one" value="" class="form"> X
@@ -90,6 +90,8 @@
 
     <script src="../core.js"></script>
     <script src="./eliminasi.js"></script>
+    <script src="./campuran.js"></script>
+    <script src="./matriks.js"></script>
     <script>
         const substitusi = document.getElementById('substitusi')
         const clear = document.getElementById('clear')
