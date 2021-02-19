@@ -49,18 +49,18 @@ const metodeSubstitusi = data => {
     let hitungkiri = nilai.z_two - (pindahRuas(kali_kurung1) < 0 ? kali_kurung1 : pindahRuas(kali_kurung1))
 
     $("#hasil").html(`
-        <input type = "text" disabled value = "${persamaan_satu}" > <br>
-        <input type="text" disabled value="${perpindahan_ruas}"><br>
-        <input type="text" disabled value="${hitung_pindah_ruas}"><br>
-        <input type="text" disabled value="y = ${hasill}"><br><br>
+        <input type ="text" disabled value = "${persamaan_satu}" class="w-full"> <br>
+        <input type="text" disabled value="${perpindahan_ruas}" class="w-full"><br>
+        <input type="text" disabled value="${hitung_pindah_ruas}" class="w-full"><br>
+        <input type="text" disabled value="y = ${hasill}" class="w-full"><br><br>
 
-        <input type="text" disabled value="${persamaan_dua}"><br>
-        <input type="text" disabled value="${persamaan_dua.replace('y', '(' + hasill + ')')}"><br>
-        <input type="text" disabled value="${nilai.x_two}x ${kali_kurung1 < 0 ? '-' : '+'} ${kali_kurung1} ${operasi} ${kali_kurung22} = ${nilai.z_two}"><br>
-        <input type="text" disabled value="${perpindahan_ruas2}"><br>
-        <input type="text" disabled value="${hitung_pindah_ruas2}x = ${nilai.z_two - (pindahRuas(kali_kurung1) < 0 ? kali_kurung1 : pindahRuas(kali_kurung1))}"><br>
-        <input type="text" disabled value="x = ${hitungkiri} / ${hitung_pindah_ruas2}"><br>
-        <input type="text" disabled value="x = ${hitungkiri / hitung_pindah_ruas2}"><br>
+        <input type="text" disabled value="${persamaan_dua}" class="w-full"><br>
+        <input type="text" disabled value="${persamaan_dua.replace('y', '(' + hasill + ')')}" class="w-full"><br>
+        <input type="text" disabled value="${nilai.x_two}x ${kali_kurung1 < 0 ? '-' : '+'} ${kali_kurung1} ${operasi} ${kali_kurung22} = ${nilai.z_two}" class="w-full"><br>
+        <input type="text" disabled value="${perpindahan_ruas2}" class="w-full"><br>
+        <input type="text" disabled value="${hitung_pindah_ruas2}x = ${nilai.z_two - (pindahRuas(kali_kurung1) < 0 ? kali_kurung1 : pindahRuas(kali_kurung1))}" class="w-full"><br>
+        <input type="text" disabled value="x = ${hitungkiri} / ${hitung_pindah_ruas2}" class="w-full"><br>
+        <input type="text" disabled value="x = ${hitungkiri / hitung_pindah_ruas2}" class="w-full"><br>
     `)
 
     let x = hitungkiri / hitung_pindah_ruas2
