@@ -7,7 +7,7 @@
 }
 
 .form {
-	@apply border-2 border-gray-300 rounded focus:outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-300;
+	@apply border-2 border-gray-300 rounded focus:outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-300 p-1;
 }
 
 .btn-purple{
