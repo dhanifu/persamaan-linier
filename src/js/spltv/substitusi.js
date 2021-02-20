@@ -41,7 +41,7 @@ x = ${pindah_ruas}</textarea>
     let pers1 = tambah(parseInt(nilai.a_two), parseInt(pindah_ruas2))
     $("#hasil").append(`
         <p>Substitusikan x ke persamaan 2</p>
-        <textarea class="bg-gray-100 p-4 w-full" rows="6" cols="30" id="foo">${persamaan2}
+        <textarea class="bg-gray-100 p-4 w-full" rows="6" cols="30" id="foo" disabled>${persamaan2}
 ${nilai.x_two}(${pindah_ruas}) ${cekruas_y} ${cekruas_z} = ${nilai.a_two}
 ${new_x}y ${nilai.x_two * zone}z ${cekRuas(nilai.x_two * nilai.a_one)} ${cekRuasVar(nilai.y_two, 'y')} ${cekRuasVar(nilai.z_two, 'z')} = ${nilai.a_two}
 ${tambah(parseInt(new_x), parseInt(nilai.y_two))}y ${tambah(parseInt(new_z), parseInt(nilai.z_two))}z ${cekRuas(nilai.x_two * nilai.a_two)} = ${nilai.a_two}
@@ -51,9 +51,27 @@ ${tambah(parseInt(new_x), parseInt(nilai.y_two))}y ${tambah(parseInt(new_z), par
     `)
 
     // Substitusi x ke pers. 3
+    cekruas_y = cekRuas(nilai.y_three) == '+ 1' || cekRuas(nilai.y_three) == '- 1'? cekRuas(nilai.y_three).substr(0,1) + ' y' : cekRuas(nilai.y_three) + 'y'
+    cekruas_z = cekRuas(nilai.z_three) == '+ 1' || cekRuas(nilai.z_three) == '- 1'? cekRuas(nilai.z_three).substr(0,1) + ' z' : cekRuas(nilai.z_three) + 'z'
+    yone = pindahRuas(nilai.y_one)
+    zone = pindahRuas(nilai.z_one)
+
+    new_x = nilai.x_three * pindahRuas(nilai.y_one)
+    new_z = nilai.x_three * pindahRuas(nilai.z_one)
+    
+    pindah_ruas2 = pindahRuas(nilai.x_three * nilai.a_one)
+    pers1 = tambah(parseInt(nilai.a_three), parseInt(pindah_ruas2))
+
+
     $("#hasil").append(`
         <p>Substitusikan x ke persamaan 3</p>
-        <textarea class="bg-gray-100 p-4 w-full" rows="7" cols="30">Can beres</textarea>
+        <textarea class="bg-gray-100 p-4 w-full" rows="6" cols="30" id="foo" disabled>${persamaan3}
+${nilai.x_three}(${pindah_ruas}) ${cekruas_y} ${cekruas_z} = ${nilai.a_three}
+${new_x}y ${nilai.x_three * zone}z ${cekRuas(nilai.x_three * nilai.a_one)} ${cekRuasVar(nilai.y_three, 'y')} ${cekRuasVar(nilai.z_three, 'z')} = ${nilai.a_three}
+${tambah(parseInt(new_x), parseInt(nilai.y_three))}y ${tambah(parseInt(new_z), parseInt(nilai.z_three))}z ${cekRuas(nilai.x_three * nilai.a_three)} = ${nilai.a_three}
+${tambah(parseInt(new_x), parseInt(nilai.y_three))}y ${tambah(parseInt(new_z), parseInt(nilai.z_three))}z = ${nilai.a_three} ${cekRuas(pindah_ruas2)}
+${tambah(parseInt(new_x), parseInt(nilai.y_three))}y ${tambah(parseInt(new_z), parseInt(nilai.z_three))}z = ${pers1}</textarea>
+        <br>
     `)
 
     return {x: 1, y: 2, z: 3}
