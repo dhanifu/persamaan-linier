@@ -91,42 +91,42 @@ const metodeMatriks = (data) => {
     <input class="bg-gray-100 p-4 block w-full mb-2" disabled value="det A = ${detA}">
 
     <!-- K1 -->
-    <p class="bg-gray-100 p-4 block w-full mb-2">M <sub>11</sub> = | ${nilai.y_two} ${nilai.z_three} |<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ${nilai.y_three} ${nilai.z_two} |<br>
+    <p class="bg-gray-100 p-4 block w-full mb-2">M <sub>11</sub> = | ${nilai.y_two} ${nilai.z_two} |<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ${nilai.y_three} ${nilai.z_three} |<br>
     K <sub>11</sub> = (-1) <sup>1 + 1</sup> (${m11}) = ${k11}</p>
 
-    <p class="bg-gray-100 p-4 block w-full mb-2">M <sub>12</sub> = | ${nilai.x_two} ${nilai.z_three} |<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ${nilai.x_three} ${nilai.z_two} |<br>
+    <p class="bg-gray-100 p-4 block w-full mb-2">M <sub>12</sub> = | ${nilai.x_two} ${nilai.z_two} |<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ${nilai.x_three} ${nilai.z_three} |<br>
     K <sub>12</sub> = (-1) <sup>1 + 2</sup> (${m12}) = ${k12}</p>
 
-    <p class="bg-gray-100 p-4 block w-full mb-2">M <sub>13</sub> = | ${nilai.x_two} ${nilai.y_three} |<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ${nilai.x_three} ${nilai.y_two} |<br>
+    <p class="bg-gray-100 p-4 block w-full mb-2">M <sub>13</sub> = | ${nilai.x_two} ${nilai.y_two} |<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ${nilai.x_three} ${nilai.y_three} |<br>
     K <sub>13</sub> = (-1) <sup>1 + 3</sup> (${m13}) = ${k13}</p>
 
     <!-- K2 -->
-    <p class="bg-gray-100 p-4 block w-full mb-2">M <sub>21</sub> = | ${nilai.y_one} ${nilai.z_three} |<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ${nilai.y_three} ${nilai.z_one} |<br>
+    <p class="bg-gray-100 p-4 block w-full mb-2">M <sub>21</sub> = | ${nilai.y_one} ${nilai.z_one} |<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ${nilai.y_three} ${nilai.z_three} |<br>
     K <sub>21</sub> = (-1) <sup>2 + 1</sup> (${m21}) = ${k21}</p>
 
-    <p class="bg-gray-100 p-4 block w-full mb-2">M <sub>22</sub> = | ${nilai.x_one} ${nilai.z_three} |<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ${nilai.x_three} ${nilai.z_one} |<br>
+    <p class="bg-gray-100 p-4 block w-full mb-2">M <sub>22</sub> = | ${nilai.x_one} ${nilai.z_one} |<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ${nilai.x_three} ${nilai.z_three} |<br>
     K <sub>22</sub> = (-1) <sup>2 + 2</sup> (${m22}) = ${k22}</p>
 
-    <p class="bg-gray-100 p-4 block w-full mb-2">M <sub>23</sub> = | ${nilai.x_one} ${nilai.y_three} |<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ${nilai.x_three} ${nilai.y_one} |<br>
+    <p class="bg-gray-100 p-4 block w-full mb-2">M <sub>23</sub> = | ${nilai.x_one} ${nilai.y_one} |<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ${nilai.x_three} ${nilai.y_three} |<br>
     K <sub>23</sub> = (-1) <sup>2 + 3</sup> (${m23}) = ${k23}</p>
 
     <!-- K3 -->
-    <p class="bg-gray-100 p-4 block w-full mb-2">M <sub>31</sub> = | ${nilai.y_one} ${nilai.z_two} |<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ${nilai.y_two} ${nilai.z_one} |<br>
+    <p class="bg-gray-100 p-4 block w-full mb-2">M <sub>31</sub> = | ${nilai.y_one} ${nilai.z_one} |<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ${nilai.y_two} ${nilai.z_two} |<br>
     K <sub>31</sub> = (-1) <sup>3 + 1</sup> (${m31}) = ${k31}</p>
 
-    <p class="bg-gray-100 p-4 block w-full mb-2">M <sub>32</sub> = | ${nilai.x_one} ${nilai.z_two} |<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ${nilai.x_two} ${nilai.z_one} |<br>
+    <p class="bg-gray-100 p-4 block w-full mb-2">M <sub>32</sub> = | ${nilai.x_one} ${nilai.z_one} |<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ${nilai.x_two} ${nilai.z_two} |<br>
     K <sub>32</sub> = (-1) <sup>3 + 2</sup> (${m32}) = ${k32}</p>
 
-    <p class="bg-gray-100 p-4 block w-full mb-2">M <sub>33</sub> = | ${nilai.x_one} ${nilai.y_two} |<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ${nilai.x_two} ${nilai.y_one} |<br>
+    <p class="bg-gray-100 p-4 block w-full mb-2">M <sub>33</sub> = | ${nilai.x_one} ${nilai.y_one} |<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ${nilai.x_two} ${nilai.y_two} |<br>
     K <sub>33</sub> = (-1) <sup>3 + 3</sup> (${m33}) = ${k33}</p>
 
     <!-- kof A -->
