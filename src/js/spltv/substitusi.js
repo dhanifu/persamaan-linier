@@ -41,7 +41,7 @@ x = ${pindah_ruas}</textarea>
     let pers1 = tambah(parseInt(nilai.a_two), parseInt(pindah_ruas2))
     $("#hasil").append(`
         <p>Substitusikan x ke persamaan 2</p>
-        <textarea class="bg-gray-100 p-4 w-full" rows="6" cols="30" id="foo">${persamaan2}
+        <textarea class="bg-gray-100 p-4 w-full" rows="6" cols="30" id="foo" disabled>${persamaan2}
 ${nilai.x_two}(${pindah_ruas}) ${cekruas_y} ${cekruas_z} = ${nilai.a_two}
 ${new_x}y ${nilai.x_two * zone}z ${cekRuas(nilai.x_two * nilai.a_one)} ${cekRuasVar(nilai.y_two, 'y')} ${cekRuasVar(nilai.z_two, 'z')} = ${nilai.a_two}
 ${tambah(parseInt(new_x), parseInt(nilai.y_two))}y ${tambah(parseInt(new_z), parseInt(nilai.z_two))}z ${cekRuas(nilai.x_two * nilai.a_two)} = ${nilai.a_two}
@@ -53,7 +53,7 @@ ${tambah(parseInt(new_x), parseInt(nilai.y_two))}y ${tambah(parseInt(new_z), par
     // Substitusi x ke pers. 3
     $("#hasil").append(`
         <p>Substitusikan x ke persamaan 3</p>
-        <textarea class="bg-gray-100 p-4 w-full" rows="7" cols="30">Can beres</textarea>
+        <textarea class="bg-gray-100 p-4 w-full" rows="7" cols="30" disabled>Can beres</textarea>
     `)
 
     return {x: 1, y: 2, z: 3}
