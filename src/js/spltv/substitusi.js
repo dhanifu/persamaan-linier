@@ -51,7 +51,7 @@ ${tambah(parseInt(new_x), parseInt(nilai.y_two))}y ${tambah(parseInt(new_z), par
     `)
 
     // Substitusi x ke pers. 3
-    $("#hasil").appen(`
+    $("#hasil").append(`
         <p>Substitusikan x ke persamaan 3</p>
         <textarea class="bg-gray-100 p-4 w-full" rows="7" cols="30">Can beres</textarea>
     `)
