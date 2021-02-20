@@ -104,3 +104,12 @@ const bagiVar = (varr, a, b) => {
     }
     return c
 }
+
+const kofaktor = (varr, a, b) => {
+    let c = a + b
+    if (c % 2 == 0) {
+        return varr
+    } else if (c % 2 == 1) {
+        return varr * -1
+    }
+}
