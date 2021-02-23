@@ -39,6 +39,12 @@ x = ${pindah_ruas}</textarea>
     
     let pindah_ruas2 = pindahRuas(nilai.x_two * nilai.a_one)
     let pers1 = tambah(parseInt(nilai.a_two), parseInt(pindah_ruas2))
+
+    let pers1_y = tambah(parseInt(new_x), parseInt(nilai.y_two))
+    let pers1_z = tambah(parseInt(new_z), parseInt(nilai.z_two))
+    let pers1_a = tambah(parseInt(nilai.a_two), parseInt(pindah_ruas2))
+    let pers_1 = `${tambah(parseInt(new_x), parseInt(nilai.y_two))}y ${tambah(parseInt(new_z), parseInt(nilai.z_two))}z = ${pers1}`
+
     $("#hasil").append(`
         <p>Substitusikan x ke persamaan 2</p>
         <textarea class="bg-gray-100 p-4 w-full" rows="6" cols="30" id="foo" disabled>${persamaan2}
@@ -62,6 +68,10 @@ ${tambah(parseInt(new_x), parseInt(nilai.y_two))}y ${tambah(parseInt(new_z), par
     pindah_ruas2 = pindahRuas(nilai.x_three * nilai.a_one)
     pers1 = tambah(parseInt(nilai.a_three), parseInt(pindah_ruas2))
 
+    let pers2_y = tambah(parseInt(new_x), parseInt(nilai.y_three))
+    let pers2_z = tambah(parseInt(new_z), parseInt(nilai.z_three))
+    let pers2_a = tambah(parseInt(nilai.a_three), parseInt(pindah_ruas2))
+    let pers_2 = `${tambah(parseInt(new_x), parseInt(nilai.y_three))}y ${tambah(parseInt(new_z), parseInt(nilai.z_three))}z = ${pers1}`
 
     $("#hasil").append(`
         <p>Substitusikan x ke persamaan 3</p>
@@ -73,6 +83,64 @@ ${tambah(parseInt(new_x), parseInt(nilai.y_three))}y ${tambah(parseInt(new_z), p
 ${tambah(parseInt(new_x), parseInt(nilai.y_three))}y ${tambah(parseInt(new_z), parseInt(nilai.z_three))}z = ${pers1}</textarea>
         <br>
     `)
+
+    $("#hasil").append(`
+        <p>Buat Persamaan Baru</p>
+        <textarea class="bg-gray-100 p-4 w-full" rows="3" id="foo" disabled>${pers_2}
+${pers2_y}y =  + ${pindahRuas(pers2_z)}z ${pers2_a}
+y = ${pindahRuas(pers2_z)/pers2_y}z + ${pers2_a / pers2_y}</textarea>
+        <br>
+    `)
+
+    let hasilZ = (pers1_a + ((pers1_y * (pers2_a / pers2_y)) * -1)) / ((pers1_y * (pindahRuas(pers2_z)/pers2_y)) + pers1_z)
+
+    $("#hasil").append(`
+    <p>Subtitusi Persamaan Baru</p>
+    <textarea class="bg-gray-100 p-4 w-full" rows="6" cols="30" id="foo" disabled>${pers_1}
+${pers1_y}(${pindahRuas(pers2_z)/pers2_y}z + ${pers2_a / pers2_y}) + ${pers1_z}z = ${pers1_a}
+${pers1_y * (pindahRuas(pers2_z)/pers2_y)}z + ${pers1_y * (pers2_a / pers2_y)} + ${pers1_z}z = ${pers1_a}
+${pers1_y * (pindahRuas(pers2_z)/pers2_y)}z + ${pers1_z}z = ${pers1_a} + ${(pers1_y * (pers2_a / pers2_y)) * -1}
+${(pers1_y * (pindahRuas(pers2_z)/pers2_y)) + pers1_z}z = ${pers1_a + ((pers1_y * (pers2_a / pers2_y)) * -1)}
+z = ${hasilZ}</textarea>
+    <br>
+`)
+
+    let hasilY = (pers2_a + ((pers2_z * hasilZ) * -1)) / pers2_y
+    $("#hasil").append(`
+    <p>Subtitusi Z</p>
+    <textarea class="bg-gray-100 p-4 w-full" rows="6" cols="30" id="foo" disabled>${pers_2}
+${pers2_y}y + ${pers2_z}(${hasilZ}) = ${pers2_a}
+${pers2_y}y + ${pers2_z * hasilZ} = ${pers2_a}
+${pers2_y}y = ${pers2_a} + ${(pers2_z * hasilZ) * -1}
+${pers2_y}y = ${pers2_a + ((pers2_z * hasilZ) * -1)}
+y = ${hasilY}</textarea>
+<br>
+`)
+
+    $("#hasil").append(`
+    <p>Mencari X</p>
+    <textarea class="bg-gray-100 p-4 w-full" rows="6" cols="30" id="foo" disabled>${persamaan1}
+${parseInt(nilai.x_one)}x + ${parseInt(nilai.y_one)}(${hasilY}) + ${parseInt(nilai.z_one)}(${hasilZ}) = ${parseInt(nilai.a_one)}
+${parseInt(nilai.x_one)}x + ${parseInt(nilai.y_one) * hasilY} + ${parseInt(nilai.z_one * hasilZ)} = ${parseInt(nilai.a_one)}
+${parseInt(nilai.x_one)}x = ${parseInt(nilai.a_one)} + ${(parseInt(nilai.y_one) * hasilY) * -1} + ${(parseInt(nilai.z_one) * hasilZ) * -1}
+${parseInt(nilai.z_one)}x = ${parseInt(nilai.a_one) + ((parseInt(nilai.y_one) * hasilY) * -1) + ((parseInt(nilai.z_one) * hasilZ) * -1)}
+x = ${(parseInt(nilai.a_one) + ((parseInt(nilai.y_one) * hasilY) * -1) + ((parseInt(nilai.z_one) * hasilZ) * -1)) / parseInt(pindahRuas(nilai.z_one))}</textarea>
+<br>
+`)
+
+
+    console.log(pers1_y);
+    console.log(pers1_z);
+    console.log(pers1_a);
+    console.log(pers2_y);
+    console.log(pers2_z);
+    console.log(pers2_a);
+    console.log(nilai.x_one);
+    console.log(nilai.y_one);
+    console.log(nilai.z_one);
+    console.log(nilai.a_one);
+    console.log(hasilY);
+    console.log(hasilZ);
 
     return {x: 1, y: 2, z: 3}
 };
