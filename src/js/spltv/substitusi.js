@@ -117,6 +117,8 @@ y = ${hasilY}</textarea>
 <br>
 `)
 
+    let hasilX = (parseInt(nilai.a_one) + ((parseInt(nilai.y_one) * hasilY) * -1) + ((parseInt(nilai.z_one) * hasilZ) * -1)) / parseInt(pindahRuas(nilai.z_one))
+
     $("#hasil").append(`
     <p>Mencari X</p>
     <textarea class="bg-gray-100 p-4 w-full" rows="6" cols="30" id="foo" disabled>${persamaan1}
@@ -124,25 +126,26 @@ ${parseInt(nilai.x_one)}x + ${parseInt(nilai.y_one)}(${hasilY}) + ${parseInt(nil
 ${parseInt(nilai.x_one)}x + ${parseInt(nilai.y_one) * hasilY} + ${parseInt(nilai.z_one * hasilZ)} = ${parseInt(nilai.a_one)}
 ${parseInt(nilai.x_one)}x = ${parseInt(nilai.a_one)} + ${(parseInt(nilai.y_one) * hasilY) * -1} + ${(parseInt(nilai.z_one) * hasilZ) * -1}
 ${parseInt(nilai.z_one)}x = ${parseInt(nilai.a_one) + ((parseInt(nilai.y_one) * hasilY) * -1) + ((parseInt(nilai.z_one) * hasilZ) * -1)}
-x = ${(parseInt(nilai.a_one) + ((parseInt(nilai.y_one) * hasilY) * -1) + ((parseInt(nilai.z_one) * hasilZ) * -1)) / parseInt(pindahRuas(nilai.z_one))}</textarea>
+x = ${hasilX}</textarea>
 <br>
 `)
 
 
-    console.log(pers1_y);
-    console.log(pers1_z);
-    console.log(pers1_a);
-    console.log(pers2_y);
-    console.log(pers2_z);
-    console.log(pers2_a);
-    console.log(nilai.x_one);
-    console.log(nilai.y_one);
-    console.log(nilai.z_one);
-    console.log(nilai.a_one);
-    console.log(hasilY);
-    console.log(hasilZ);
+    // console.log(pers1_y);
+    // console.log(pers1_z);
+    // console.log(pers1_a);
+    // console.log(pers2_y);
+    // console.log(pers2_z);
+    // console.log(pers2_a);
+    // console.log(nilai.x_one);
+    // console.log(nilai.y_one);
+    // console.log(nilai.z_one);
+    // console.log(nilai.a_one);
+    // console.log(hasilX);
+    // console.log(hasilY);
+    // console.log(hasilZ);
 
-    return {x: 1, y: 2, z: 3}
+    return {x: hasilX, y: hasilY, z: hasilZ}
 };
 
 substitusi.addEventListener("click", function () {
