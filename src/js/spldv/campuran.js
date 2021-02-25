@@ -1,9 +1,12 @@
 const campuran = document.getElementById('campuran')
-let hasilCampuran
 
-const metodeCampuran = (data, x, y) => {
-    let persamaan_satu = `${data[0][0].x_one}x ${data[0][0].operasi_one} ${data[0][0].y_one}y = ${data[0][0].z_one}`
-    let persamaan_dua = `${data[0][1].x_two}x ${data[0][1].operasi_two} ${data[0][1].y_two}y = ${data[0][1].z_two}`
+let hasilCampuran = {}
+
+
+// akan mengembalikan HP nya
+const metodeCampuran = (data) => {
+    // Nilai HP
+    let hasil = {}
 
     let kaliKpk = {
         x: data[0][2].x / data[0][0].x_one,
@@ -25,44 +28,49 @@ const metodeCampuran = (data, x, y) => {
         z_two: data[0][1].z_two,
     }
 
+    let persamaan1 = `${nilai.x_one}x ${nilai.operasi_one} ${nilai.y_one}y = ${nilai.z_one}`
+    let persamaan2 = `${nilai.x_two}x ${nilai.operasi_two} ${nilai.y_two}y = ${nilai.z_two}`
+    let x1 = nilai.x_one * kaliKpk.x
+    let y1 = nilai.y_one * kaliKpk.x
+    let z1 = nilai.z_one * kaliKpk.x
+    let x2 = nilai.x_two * kaliKpk.x_2
+    let y2 = nilai.y_two * kaliKpk.x_2
+    let z2 = nilai.z_two * kaliKpk.x_2
+    let eliminasiy = y1 - y2
+    let eliminasiz = z1 - z2
+    let hasilY = eliminasiz / eliminasiy
 
-    let kali_kurung = kali(data[0][0].y_one, y)
-    let pindah_ruas = pindahRuas(kali_kurung)
-    let hasil_pindah_ruas = parseInt(data[0][0].z_one) + pindah_ruas
-
-    // Eliminasi dulu
+    let x_1 = nilai.x_one * kaliKpk.y
+    let y_1 = nilai.y_one * kaliKpk.y
+    let z_1 = nilai.z_one * kaliKpk.y
+    let x_2 = nilai.x_two * kaliKpk.y_2
+    let y_2 = nilai.y_two * kaliKpk.y_2
+    let z_2 = nilai.z_two * kaliKpk.y_2
+    let eliminasix = x_1 - x_2
+    let eliminasiz1 = z_1 - z_2
+    let hasilX = eliminasiz1 / eliminasix
+    
     $("#hasil").html(`
-    <p>Eliminasi Y</p>
-    <textarea disabled class="form w-full" id="foo">${nilai.x_one * kaliKpk.y}x ${nilai.operasi_one} ${nilai.kpk_y}y = ${nilai.z_one * kaliKpk.y}
-${nilai.x_two * kaliKpk.y_2}x ${nilai.operasi_two} ${nilai.kpk_y}y = ${nilai.z_two * kaliKpk.y_2}</textarea>
-    <input disabled class="form w-full" value= "${nilai.x_one * kaliKpk.y + nilai.x_two * kaliKpk.y_2}x = ${nilai.z_one * kaliKpk.y + nilai.z_two * kaliKpk.y_2}"><br>
-    <input disabled class="form w-full" value="x = ${(nilai.z_one * kaliKpk.y + nilai.z_two * kaliKpk.y_2) / (nilai.x_one * kaliKpk.y + nilai.x_two * kaliKpk.y_2)}">
+        <p>Eliminasi X</p>
+        <textarea class="bg-gray-100 p-4 w-full" id="foo" disabled>${persamaan1}
+${persamaan2}</textarea>
+        <textarea class="bg-gray-100 p-4 w-full" id="foo" disabled>${x1}x + ${kurungMinus(y1)}y = ${z1}
+${x2}x + ${kurungMinus(y2)}y = ${z2}</textarea>
+    <textarea class="bg-gray-100 p-4 w-full" id="foo" disabled>${eliminasiy}y = ${eliminasiz}
+y = ${hasilY}</textarea>
+
+        <p>Subtitusi Y</p>
+        <textarea class="bg-gray-100 p-4 w-full" id="foo" disabled>${persamaan1}
+${nilai.x_one}x + ${nilai.y_one}(${hasilY}) = ${nilai.z_one}</textarea>
+        <textarea class="bg-gray-100 p-4 w-full" id="foo" disabled rows="5">${nilai.x_one}x + ${nilai.y_one * hasilY} = ${nilai.z_one}
+${nilai.x_one}x = ${nilai.z_one} + ${(nilai.y_one * hasilY) * -1}
+${nilai.x_one}x = ${parseInt(nilai.z_one) + ((nilai.y_one * hasilY) * -1)}
+x = ${(parseInt(nilai.z_one) + ((nilai.y_one * hasilY) * -1)) / parseInt(nilai.x_one)}</textarea>
+
+<textarea class="bg-gray-100 p-4 w-full" id="foo" disabled>Himpunan Penyelesaian (${(parseInt(nilai.z_one) + ((nilai.y_one * hasilY) * -1)) / parseInt(nilai.x_one)}, ${hasilY})</textarea>
     `)
-
-    // Baru subtitusi
-    kali_kurung = kali(data[0][1].x_two, x)
-    let y2 = cekMinus(data[0][1].operasi_two, data[0][1].y_two)
-    pindah_ruas = pindahRuas(kali_kurung)
-    hasil_pindah_ruas2 = parseInt(data[0][1].z_two) + pindah_ruas
-
-    $("#hasil").append(`
-        <br>
-        <br>
-        <p>Subtitusi X</p>
-        <input disabled class="form w-full" value="${data[0][1].x_two}(${x}) ${data[0][1].operasi_two} ${data[0][1].y_two}y = ${data[0][1].z_two}"><br>
-        <input disabled class="form w-full" value="${kali_kurung} ${data[0][1].operasi_two} ${data[0][1].y_two}y = ${data[0][1].z_two}"><br>
-        <input disabled class="form w-full" value="${y2}y = ${data[0][1].z_two} ${cekRuas(pindah_ruas)}"><br>
-        <input disabled class="form w-full" value="${y2}y = ${hasil_pindah_ruas2}"><br>
-        <input disabled class="form w-full" value="y = ${hasil_pindah_ruas2} / ${kurungMinus(y2)}"><br>
-        <input disabled class="form w-full" value="y = ${hasil_pindah_ruas2 / y2}"><br>
-    `)
-
-
-    return hasilCampuran = {
-        x: hasil_pindah_ruas / data[0][0].x_one,
-        y: hasil_pindah_ruas2 / y2
-    }
 }
+
 
 campuran.addEventListener('click', function () {
     let data = []
@@ -88,11 +96,6 @@ campuran.addEventListener('click', function () {
 
     let nilai = []
     nilai.push(data)
-    eliminasiHP = metodeEliminasi(nilai)
-    let x = eliminasiHP.x
-    let y = eliminasiHP.y
-    $('#hasil').html('')
 
-
-    hasilCampuran = metodeCampuran(nilai, x, y)
+    hasilCampuran = metodeCampuran(nilai)
 })
