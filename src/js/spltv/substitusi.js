@@ -117,6 +117,8 @@ y = ${hasilY}</textarea>
 <br>
 `)
 
+    let hasilX = (parseInt(nilai.a_one) + ((parseInt(nilai.y_one) * hasilY) * -1) + ((parseInt(nilai.z_one) * hasilZ) * -1)) / parseInt(pindahRuas(nilai.z_one))
+
     $("#hasil").append(`
     <p>Mencari X</p>
     <textarea class="bg-gray-100 p-4 w-full" rows="6" cols="30" id="foo" disabled>${persamaan1}
