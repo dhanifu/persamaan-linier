@@ -28,47 +28,46 @@ const metodeEliminasi = (data) => {
         z_two: data[0][1].z_two,
     }
 
+    let persamaan1 = `${nilai.x_one}x ${nilai.operasi_one} ${nilai.y_one}y = ${nilai.z_one}`
+    let persamaan2 = `${nilai.x_two}x ${nilai.operasi_two} ${nilai.y_two}y = ${nilai.z_two}`
+    let x1 = nilai.x_one * kaliKpk.x
+    let y1 = nilai.y_one * kaliKpk.x
+    let z1 = nilai.z_one * kaliKpk.x
+    let x2 = nilai.x_two * kaliKpk.x_2
+    let y2 = nilai.y_two * kaliKpk.x_2
+    let z2 = nilai.z_two * kaliKpk.x_2
+    let eliminasiy = y1 - y2
+    let eliminasiz = z1 - z2
+    let hasilY = eliminasiz / eliminasiy
+
+    let x_1 = nilai.x_one * kaliKpk.y
+    let y_1 = nilai.y_one * kaliKpk.y
+    let z_1 = nilai.z_one * kaliKpk.y
+    let x_2 = nilai.x_two * kaliKpk.y_2
+    let y_2 = nilai.y_two * kaliKpk.y_2
+    let z_2 = nilai.z_two * kaliKpk.y_2
+    let eliminasix = x_1 - x_2
+    let eliminasiz1 = z_1 - z_2
+    let hasilX = eliminasiz1 / eliminasix
+    
     $("#hasil").html(`
         <p>Eliminasi X</p>
-        <input disabled class="form w-full" value="${nilai.kpk_x}x ${nilai.operasi_one} ${kurungMinus(nilai.y_one * kaliKpk.x)}y = ${nilai.z_one * kaliKpk.x}"><br>
-        <input disabled class="form w-full" value= "${nilai.kpk_x}x ${nilai.operasi_two} ${kurungMinus(nilai.y_two * kaliKpk.x_2)}y = ${nilai.z_two * kaliKpk.x_2}"><br>
-        <input disabled class="form w-full" value="" id="penyelesaian_x"><br>
-        <input disabled class="form w-full" value="" id="hasil_x">
-        
-        <br><br>
+        <textarea class="bg-gray-100 p-4 block w-full" id="foo" disabled>${persamaan1}
+${persamaan2}</textarea>
+        <textarea class="bg-gray-100 p-4 block w-full" id="foo" disabled>${x1}x + ${kurungMinus(y1)}y = ${z1}
+${x2}x + ${kurungMinus(y2)}y = ${z2}</textarea>
+    <textarea class="bg-gray-100 p-4 block w-full" id="foo" disabled>${eliminasiy}y = ${eliminasiz}
+y = ${hasilY}</textarea>
 
-        <p>Eliminasi Y</p>
-        <input disabled class="form w-full" value="${nilai.x_one * kaliKpk.y}x ${nilai.operasi_one} ${nilai.kpk_y}y = ${nilai.z_one * kaliKpk.y}"><br>
-        <input disabled class="form w-full" value= "${nilai.x_two * kaliKpk.y_2}x ${nilai.operasi_two} ${nilai.kpk_y}y = ${nilai.z_two * kaliKpk.y_2}"><br>
-        <input disabled class="form w-full" value="" id="penyelesaian_y"><br>
-        <input disabled class="form w-full" value="" id="hasil_y">
+        <p>Eliminasi X</p>
+        <textarea class="bg-gray-100 p-4 block w-full" id="foo" disabled>${persamaan1}
+${persamaan2}</textarea>
+        <textarea class="bg-gray-100 p-4 block w-full" id="foo" disabled>${x_1}x + ${kurungMinus(y_1)}y = ${z_1}
+${x_2}x + ${kurungMinus(y_2)}y = ${z_2}</textarea>
+        <textarea class="bg-gray-100 p-4 block w-full" id="foo" disabled>${eliminasix}x = ${eliminasiz1}
+x = ${hasilX}</textarea>
+<textarea class="bg-gray-100 p-4 block w-full" id="foo" disabled>Himpunan Penyelesaian (${hasilX}, ${hasilY})</textarea>  
     `)
-
-    if (nilai.kpk_x - nilai.kpk_x == 0) {
-        let x_kiri = cekMinus(nilai.operasi_one, nilai.y_one * kaliKpk.x) - cekMinus(nilai.operasi_two, nilai.y_two * kaliKpk.x_2)
-        let x_kanan = (nilai.z_one * kaliKpk.x) - (nilai.z_two * kaliKpk.x_2)
-        let penyelesaian_x = `${x_kiri}y = ${x_kanan}`
-        let hasil_x = `y = ${x_kanan}/${x_kiri} = ${x_kanan / x_kiri}`
-
-        let y_kiri = (nilai.x_one * kaliKpk.y) + (nilai.x_two * kaliKpk.y_2)
-        let y_kanan = (nilai.z_one * kaliKpk.y) + (nilai.z_two * kaliKpk.y_2)
-        let penyelesaian_y = `${y_kiri}x = ${y_kanan}`
-        let hasil_y = `x = ${y_kanan}/${y_kiri} = ${y_kanan / y_kiri}`
-
-        hasil = {
-            x: y_kanan / y_kiri,
-            y: x_kanan / x_kiri
-        }
-
-        $('#penyelesaian_x').val(penyelesaian_x)
-        $('#hasil_x').val(hasil_x)
-        $('#penyelesaian_y').val(penyelesaian_y)
-        $('#hasil_y').val(hasil_y)
-
-        return hasil
-    } else {
-        alert("tidak 0")
-    }
 }
 
 

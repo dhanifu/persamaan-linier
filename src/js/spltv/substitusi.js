@@ -125,27 +125,11 @@ y = ${hasilY}</textarea>
 ${parseInt(nilai.x_one)}x + ${parseInt(nilai.y_one)}(${hasilY}) + ${parseInt(nilai.z_one)}(${hasilZ}) = ${parseInt(nilai.a_one)}
 ${parseInt(nilai.x_one)}x + ${parseInt(nilai.y_one) * hasilY} + ${parseInt(nilai.z_one * hasilZ)} = ${parseInt(nilai.a_one)}
 ${parseInt(nilai.x_one)}x = ${parseInt(nilai.a_one)} + ${(parseInt(nilai.y_one) * hasilY) * -1} + ${(parseInt(nilai.z_one) * hasilZ) * -1}
-${parseInt(nilai.z_one)}x = ${parseInt(nilai.a_one) + ((parseInt(nilai.y_one) * hasilY) * -1) + ((parseInt(nilai.z_one) * hasilZ) * -1)}
-x = ${hasilX}</textarea>
+${parseInt(nilai.x_one)}x = ${parseInt(nilai.a_one) + ((parseInt(nilai.y_one) * hasilY) * -1) + ((parseInt(nilai.z_one) * hasilZ) * -1)}
+x = ${((parseInt(nilai.a_one) + ((parseInt(nilai.y_one) * hasilY) * -1) + ((parseInt(nilai.z_one) * hasilZ) * -1))) / parseInt(nilai.x_one)     }</textarea>
 <br>
 `)
-
-
-    // console.log(pers1_y);
-    // console.log(pers1_z);
-    // console.log(pers1_a);
-    // console.log(pers2_y);
-    // console.log(pers2_z);
-    // console.log(pers2_a);
-    // console.log(nilai.x_one);
-    // console.log(nilai.y_one);
-    // console.log(nilai.z_one);
-    // console.log(nilai.a_one);
-    // console.log(hasilX);
-    // console.log(hasilY);
-    // console.log(hasilZ);
-
-    return {x: hasilX, y: hasilY, z: hasilZ}
+    return {x: 1, y: 2, z: 3}
 };
 
 substitusi.addEventListener("click", function () {

@@ -1,21 +1,30 @@
 const matriks = document.getElementById('matriks')
 let hasilMatriks
 
-const metodeMatriks = (data, x, y) => {
-    let nilai = ubahData(data)
-    let persamaan_satu = `${nilai.x_one}x ${nilai.operasi_one} ${nilai.y_one}y = ${nilai.z_one}`
-    let persamaan_dua = `${nilai.x_two}x ${nilai.operasi_two} ${nilai.y_two}y = ${nilai.z_two}`
+const metodeMatriks = (data) => {
+    let persamaan_satu = `${data[0][0].x_one}x ${data[0][0].operasi_one} ${data[0][0].y_one}y = ${data[0][0].z_one}`
+    let persamaan_dua = `${data[0][1].x_two}x ${data[0][1].operasi_two} ${data[0][1].y_two}y = ${data[0][1].z_two}`
 
     let kaliKpk = {
-        x: nilai.x / nilai.x_one,
-        y: nilai.y / nilai.y_one,
-        x_2: nilai.x / nilai.x_two,
-        y_2: nilai.y / nilai.y_two
+        x: data[0][2].x / data[0][0].x_one,
+        y: data[0][2].y / data[0][0].y_one,
+        x_2: data[0][2].x / data[0][1].x_two,
+        y_2: data[0][2].y / data[0][1].y_two
     }
 
-    let kali_kurung = kali(nilai.y_one, y)
-    let pindah_ruas = pindahRuas(kali_kurung)
-
+    let nilai = {
+        kpk_x: data[0][2].x,
+        kpk_y: data[0][2].y,
+        operasi_one: data[0][0].operasi_one,
+        operasi_two: data[0][1].operasi_two,
+        x_one: data[0][0].x_one,
+        y_one: data[0][0].y_one,
+        z_one: data[0][0].z_one,
+        x_two: data[0][1].x_two,
+        y_two: data[0][1].y_two,
+        z_two: data[0][1].z_two,
+    }
+    
     let y1 = cekMinus(nilai.operasi_one, nilai.y_one)
     let y3 = cekMinus(nilai.operasi_two, nilai.y_two)
 
@@ -50,12 +59,31 @@ const metodeMatriks = (data, x, y) => {
 }
 
 matriks.addEventListener('click', function () {
-    let nilai = getValue()
+    let data = []
+    data = [
+        {
+            x_one: $('#x_one').val(),
+            y_one: $('#y_one').val(),
+            z_one: $('#z_one').val(),
+            operasi_one: $('#operasi_one').val(),
+        },
+        {
+            x_two: $('#x_two').val(),
+            y_two: $('#y_two').val(),
+            z_two: $('#z_two').val(),
+            operasi_two: $('#operasi_two').val(),
+        }
+    ]
 
-    eliminasiHP = metodeEliminasi(nilai)
-    let x = eliminasiHP.x
-    let y = eliminasiHP.y
+    data[2] = {
+        x: kpk(data[0].x_one, data[1].x_two),
+        y: kpk(data[0].y_one, data[1].y_two)
+    }
+
+    let nilai = []
+    nilai.push(data)
+    
     $('#hasil').html('')
 
-    hasilMatriks = metodeMatriks(nilai, x, y)
+    hasilMatriks = metodeMatriks(nilai)
 })
